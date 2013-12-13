@@ -6,7 +6,7 @@
         id        = "com.mysite.square-game"
         version   = "1.0.0">
 
-    <name>Hello World</name>
+    <name>Square Game</name>
 
     <description>
         My square game
