@@ -12,6 +12,7 @@
 	#square_div {
 		position: absolute;
 		left: 10%;
+		top: 10%;
 		height: 80%;
 		width: 80%;
 	}
@@ -57,7 +58,7 @@
 }
 @media only screen and (max-device-width: 480px) {
 	#timer, #score, #tip {
-		font-size: 50px;
+		font-size: 35px;
 	}
 }
 #gameover {
