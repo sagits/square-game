@@ -10,7 +10,7 @@
 }
 @media only screen and (max-device-width: 480px) {
 	#square_div {
-		position: relative;
+		position: absolute;
 		left: 10%;
 		height: 80%;
 		width: 80%;
