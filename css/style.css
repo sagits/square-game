@@ -58,7 +58,7 @@
 }
 @media only screen and (max-device-width: 480px) {
 	#timer, #score, #tip {
-		font-size: 35px;
+		font-size: 20px;
 	}
 }
 #gameover {
