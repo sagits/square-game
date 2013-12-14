@@ -45,7 +45,8 @@
 }
 #text {
 	position: relative;
-	left: 21%;
+	left: 16%;
+	width: 83%;
 	top: 0.2%;
 	overflow: auto;
 }
