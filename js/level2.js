@@ -1,19 +1,12 @@
-document.addEventListener("backbutton", function () {
-              navigator.notification.confirm(
-                        'Do you want to quit', 
-                        onConfirmQuit, 
-                        'Exit', 
-                        'Cancel'  
-                    );
-            }, true); 
+document.addEventListener("backbutton", function() {
+	navigator.notification.confirm('Do you want to quit', onConfirmQuit, 'Exit', 'Cancel');
+}, true);
 
-
-    function onConfirmQuit(button){
-       if(button == "1"){
-        navigator.app.exitApp(); 
-    }
-    }
-
+function onConfirmQuit(button) {
+	if (button == "1") {
+		navigator.app.exitApp();
+	}
+}
 
 var lastrandom;
 var onecolor;
@@ -26,8 +19,8 @@ var score = 0;
 var currentOp;
 var doing = false;
 var rightblock = false;
-var count = 8000;
-var pointClick = 500; 
+var count = 4000;
+var pointClick = 500;
 var scoreClick = 300;
 $(document).ready(function() {
 
@@ -44,6 +37,17 @@ $(document).ready(function() {
 			gameover = '<div id="gameover"><h3>Game Over</h3></div>';
 			$("body").append(gameover);
 			return;
+		}
+		if ($("#score").text().indexOf('7000') > -1) {
+			clearInterval(counter);
+			navigator.notification.confirm('Congratulations! Do you wanna play again?', function(button) {
+				if (button == 2) {
+					window.location.href = "level1.html";
+				} else {
+					window.location.href = "index.html";
+				}
+			}, 'Congratulations', 'Menu,Play again');
+
 		}
 
 		$("#timer").text("Time: " + count + "sec");
@@ -95,8 +99,8 @@ $(document).ready(function() {
 
 			oldcolor = allcolor;
 			if (thiscolor == onecolor) {
-				count+=  pointClick;
-				score+= scoreClick;
+				count += pointClick;
+				score += scoreClick;
 				$("#score").text("Score: " + score);
 				random = randomFromInterval(0, 7);
 				allcolor = onecolor;

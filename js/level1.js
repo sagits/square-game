@@ -14,7 +14,7 @@ var allcolor;
 var animateTime = 500;
 var x = 5;
 var score = 0;
-var count = 4000;
+var count = 3000;
 var pointClick = 300;
 var scoreClick = 300;
 $(document).ready(function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
 			$("body").append(gameover);
 			return;
 		}
-		if ($("#score").text().indexOf('3000') > -1) {
+		if ($("#score").text().indexOf('7000') > -1) {
 			clearInterval(counter);
 			navigator.notification.confirm('Congratulations! Do you wanna play the next level?', function(button) {
 				if (button == 2) {
