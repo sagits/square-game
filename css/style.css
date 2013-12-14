@@ -1,5 +1,5 @@
 #square_div {
-	position: relative;
+	position: absolute;
 	left: 25%;
 	top: 20%;
 	width: 20%;
@@ -9,9 +9,9 @@
 }
 @media only screen and (max-device-width: 480px) {
 	#square_div {
-		position: relative;
+		position: absolute;
 		left: 10%;
-		height: 1000px;
+		height: 80%;
 		width: 80%;
 	}
 }
@@ -21,13 +21,13 @@
 	width: 48.5%;
 	margin-left: 1%;
 	margin-bottom: 1%;
-	height: 130px;
+	height: 24%;
 	cursor: pointer;
 }
 @media only screen and (max-device-width: 480px) {
 	.square {
 		float: left;
-		height: 250px;
+		height: 24%;
 		width: 48.5%;
 	}
 }
@@ -44,7 +44,7 @@
 }
 #text {
 	position: relative;
-	left: 22%;
+	left: 25%;
 	top: 0.2%;
 	overflow: auto;
 }
@@ -56,7 +56,7 @@
 }
 @media only screen and (max-device-width: 480px) {
 	#timer, #score, #tip {
-		font-size: 50px;
+		font-size: 22px;
 	}
 }
 #gameover {
