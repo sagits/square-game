@@ -40,7 +40,7 @@ $(document).ready(function() {
 				else {
 					window.location.href = "index.html";
 				}
-			}, 'Menu', 'Play next level');
+			}, 'Congratulations', 'Menu,Play next level');
 
 		}
 
