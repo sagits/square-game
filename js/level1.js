@@ -33,15 +33,14 @@ $(document).ready(function() {
 		}
 		if ($("#score").text().indexOf('3000') > -1) {
 			clearInterval(counter);
-			navigator.notification.confirm('Congratualions! Do you wanna play the next level?', level2, 'Menu', 'Play next level');
-			function level2(button) {
+			navigator.notification.confirm('Congratulations! Do you wanna play the next level?', function(button) {
 				if (button == 2) {
 					window.location.href = "level2.html";
 				}
 				else {
 					window.location.href = "index.html";
 				}
-			}
+			}, 'Menu', 'Play next level');
 
 		}
 
