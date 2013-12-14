@@ -1,8 +1,9 @@
 #square_div {
 	position: absolute;
 	left: 25%;
-	top: 20%;
+	top: 12%;
 	width: 20%;
+	height: 80%;
 	overflow: auto;
 	border: solid 1px #000;
 	padding: 1%;
