@@ -42,14 +42,14 @@ $(document).ready(function() {
 			clearInterval(counter);
 			$("#timer").text(0 + "sec");
 			gameover = '<div id="gameover"><h3>Game Over</h3></div>';
-			$("body").append(gameover);
+			//$("body").append(gameover);
 			navigator.notification.confirm('Game over! Play again?', function(button) {
 				if (button == 1) {
 					window.location.href = "level3.html";
 				} else {
 					window.location.href = "index.html";
 				}
-			}, 'Congratulations', 'Play again,menu');
+			}, 'Game over', 'Play again,menu');
 			return;
 		}
 		if ($("#score").text().indexOf('10000') > -1) {
