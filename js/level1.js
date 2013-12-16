@@ -29,6 +29,13 @@ $(document).ready(function() {
 			$("#timer").text(0 + "sec");
 			gameover = '<div id="gameover"><h3>Game Over</h3></div>';
 			$("body").append(gameover);
+			navigator.notification.confirm('Game over! Play again?', function(button) {
+				if (button == 1) {
+					window.location.href = "level4.html";
+				} else {
+					window.location.href = "index.html";
+				}
+			}, 'Congratulations', 'Play again,menu');
 			return;
 		}
 		if ($("#score").text().indexOf('7000') > -1) {
@@ -36,8 +43,7 @@ $(document).ready(function() {
 			navigator.notification.confirm('Congratulations! Do you wanna play the next level?', function(button) {
 				if (button == 2) {
 					window.location.href = "level2.html";
-				}
-				else {
+				} else {
 					window.location.href = "index.html";
 				}
 			}, 'Congratulations', 'Menu,Play next level');

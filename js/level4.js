@@ -14,14 +14,15 @@ var allSrc;
 var animateTime = 500;
 var x = 5;
 var score = 0;
-var count = 10000;
+var count = 140000;
 var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
+var squares = [0, 1, 2, 3, 4, 5, 6, 7];
 $(document).ready(function() {
 
 	function preloadImage() {
-		images = ["img/level3/1.jpg", "img/level3/2.jpg", "img/level3/3.jpg", "img/level3/4.jpg", "img/level3/5.jpg", "img/level3/6.jpg", "img/level3/7.jpg", "img/level3/8.jpg", "img/level3/9.jpg", "img/level3/10.jpg", "img/level3/11.jpg", "img/level3/12.jpg", "img/level3/13.jpg", "img/level3/14.jpg", "img/level3/15.jpg", "img/level3/16.jpg", "img/level3/17.jpg", "img/level3/18.jpg", "img/level3/19.jpg", "img/level3/20.jpg"];
+		images = ["img/level4/1.jpg", "img/level4/2.jpg", "img/level4/3.jpg", "img/level4/4.jpg", "img/level4/5.jpg", "img/level4/6.jpg", "img/level4/7.jpg", "img/level4/8.jpg", "img/level4/9.jpg", "img/level4/10.jpg", "img/level4/11.jpg", "img/level4/12.jpg", "img/level4/13.jpg", "img/level4/14.jpg", "img/level4/15.jpg", "img/level4/16.jpg", "img/level4/17.jpg", "img/level4/18.jpg", "img/level4/19.jpg", "img/level4/20.jpg"];
 		$(images).each(function() {
 			$('<img/>')[0].src = this;
 			// Alternatively you could use:
@@ -38,14 +39,15 @@ $(document).ready(function() {
 
 	function meutempo() {
 		count = count - x;
-		if (count <= 0) {
+		if (count <= 0 || squares.length == 1) {
 			clearInterval(counter);
 			$("#timer").text(0 + "sec");
 			gameover = '<div id="gameover"><h3>Game Over</h3></div>';
 			$("body").append(gameover);
+			
 			navigator.notification.confirm('Game over! Play again?', function(button) {
 				if (button == 1) {
-					window.location.href = "level3.html";
+					window.location.href = "level4.html";
 				} else {
 					window.location.href = "index.html";
 				}
@@ -56,7 +58,7 @@ $(document).ready(function() {
 			clearInterval(counter);
 			navigator.notification.confirm('Congratulations! Do you wanna play the next level?', function(button) {
 				if (button == 2) {
-					window.location.href = "level4.html";
+					window.location.href = "level1.html";
 				} else {
 					window.location.href = "index.html";
 				}
@@ -75,18 +77,19 @@ $(document).ready(function() {
 			random = Math.floor(Math.random() * (to - from + 1) + from);
 		}
 		lastrandom = random;
+
 		return random;
 	}
 
 	function createImage() {
 		random = randomFromInterval(0, 19);
-		images = ["img/level3/1.jpg", "img/level3/2.jpg", "img/level3/3.jpg", "img/level3/4.jpg", "img/level3/5.jpg", "img/level3/6.jpg", "img/level3/7.jpg", "img/level3/8.jpg", "img/level3/9.jpg", "img/level3/10.jpg", "img/level3/11.jpg", "img/level3/12.jpg", "img/level3/13.jpg", "img/level3/14.jpg", "img/level3/15.jpg", "img/level3/16.jpg", "img/level3/17.jpg", "img/level3/18.jpg", "img/level3/19.jpg", "img/level3/20.jpg"];
+		images = ["img/level4/1.jpg", "img/level4/2.jpg", "img/level4/3.jpg", "img/level4/4.jpg", "img/level4/5.jpg", "img/level4/6.jpg", "img/level4/7.jpg", "img/level4/8.jpg", "img/level4/9.jpg", "img/level4/10.jpg", "img/level4/11.jpg", "img/level4/12.jpg", "img/level4/13.jpg", "img/level4/14.jpg", "img/level4/15.jpg", "img/level4/16.jpg", "img/level4/17.jpg", "img/level4/18.jpg", "img/level4/19.jpg", "img/level4/20.jpg", "img/level4/21.jpg"];
 		/*	if (random == 1) {
-		 imageSrc = 'img/level3/1.jpg';
+		 imageSrc = 'img/level4/1.jpg';
 		 } else if (random == 2) {
-		 imageSrc = 'img/level3/2.jpg';
+		 imageSrc = 'img/level4/2.jpg';
 		 } else if (random == 3) {
-		 imageSrc = 'img/level3/3.jpg';
+		 imageSrc = 'img/level4/3.jpg';
 		 } */
 
 		return images[+random];
@@ -117,6 +120,9 @@ $(document).ready(function() {
 		lastImage = allSrc;
 		allSrc = oneSrc;
 		oneSrc = createImage();
+		while (jQuery.inArray(myRandom, squares) == -1) {
+			myRandom = randomFromInterval(0, 7);
+		}
 
 		while (allSrc == oneSrc || oneSrc == lastImage) {
 			oneSrc = createImage();
@@ -162,8 +168,9 @@ $(document).ready(function() {
 			changeImage();
 			animateTime = animateTime - 30;
 		} else {
+			squareId = parseInt($(this).attr('id'), 10);
+			squares.splice($.inArray(squareId, squares), 1);
 			$(this).effect('explode');
-			$(this).fadeIn();
 			changeImage();
 			animateTime = animateTime - 30;
 			count = count - 1000;
