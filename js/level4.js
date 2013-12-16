@@ -14,7 +14,7 @@ var allSrc;
 var animateTime = 500;
 var x = 5;
 var score = 0;
-var count = 140000;
+var count = 10000;
 var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
