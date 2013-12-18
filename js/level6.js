@@ -19,10 +19,7 @@ var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
 var images = new Array();
-$(document).ready(function() {
 
-	
-	
 	function getFileSystem() {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
 			var sdcard = fileSystem.root;
@@ -47,6 +44,12 @@ $(document).ready(function() {
 	}
 	
 	getFileSystem();
+
+$(document).ready(function() {
+
+	
+	
+
 
 	function preloadImage() {
 		$(images).each(function() {
