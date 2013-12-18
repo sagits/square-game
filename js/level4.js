@@ -133,11 +133,11 @@ $(document).ready(function() {
 					opacity : 0.5
 				}, '800', function() {
 					$(this).attr('src', oneSrc);
-					$(this).animate({
+					
+					//$(this).fadeIn('fast');
+				}).animate({
 						opacity : 1
 					}, '800');
-					//$(this).fadeIn('fast');
-				});
 
 			} else {
 				$(this).animate({
