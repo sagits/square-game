@@ -20,7 +20,7 @@ var currentOp;
 var doing = false;
 var rightblock = false;
 var count = 6000;
-var pointClick = 500;
+var pointClick = 800;
 var scoreClick = 300;
 $(document).ready(function() {
 

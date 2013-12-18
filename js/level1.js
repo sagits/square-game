@@ -15,7 +15,7 @@ var animateTime = 500;
 var x = 5;
 var score = 0;
 var count = 7000;
-var pointClick = 300;
+var pointClick = 800;
 var scoreClick = 300;
 $(document).ready(function() {
 
