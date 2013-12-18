@@ -44,7 +44,8 @@ $(document).ready(function() {
 
 		directoryReader.readEntries(function(entries) {// success get files and folders
 			for (var i = 0; i < entries.length; ++i) {
-				images[+i] = entries[i].fullPath;
+				alert(entries[i].fullPath);
+				//images[+i] = entries[i].fullPath;
 			}
 			// hide loading message
 		}, function(error) {// error get files and folders
