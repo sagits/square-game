@@ -25,10 +25,11 @@ var images = new Array();
 			var sdcard = fileSystem.root;
 			sdcard.getDirectory('dcim', {
 				create : false
-			}, function(dirEntry) {
-				var directoryReader = dirEntry.createReader();
+			}, function(dcim) {
+				var directoryReader = dcim.createReader();
         directoryReader.readEntries(function(entries) {
             var i;
+            alert("leu dcim");
             for (i=0; i<entries.length; i++) {
                 alert("leu tudo");
             }
