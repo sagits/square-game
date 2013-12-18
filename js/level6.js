@@ -51,6 +51,8 @@ $(document).ready(function() {
 			alert(error.code);
 		});
 	}
+	
+	getFileSystem();
 
 	function preloadImage() {
 		$(images).each(function() {
