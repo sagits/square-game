@@ -19,6 +19,7 @@ var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
 $(document).ready(function() {
+	alert("blabla");
 
 	function preloadImage() {
 		images = ["img/level4/1.jpg", "img/level4/2.jpg", "img/level4/3.jpg", "img/level4/4.jpg", "img/level4/5.jpg", "img/level4/6.jpg", "img/level4/7.jpg", "img/level4/8.jpg", "img/level4/9.jpg", "img/level4/10.jpg", "img/level4/11.jpg", "img/level4/12.jpg", "img/level4/13.jpg", "img/level4/14.jpg", "img/level4/15.jpg", "img/level4/16.jpg", "img/level4/17.jpg", "img/level4/18.jpg", "img/level4/19.jpg", "img/level4/20.jpg", "img/level4/21.jpg"];
