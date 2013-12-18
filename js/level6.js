@@ -22,7 +22,7 @@ var images = new Array();
 $(document).ready(function() {
 
 	function listDir(directoryEntry) {
-		$.mobile.showPageLoadingMsg();
+
 		// show loading message
 
 		var directoryReader = directoryEntry.createReader();
