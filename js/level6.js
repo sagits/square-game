@@ -36,15 +36,23 @@ $(document).ready(function() {
 		}, function(error) {// error get files and folders
 			alert(error.code);
 		});
-	}
+	
 	
 	function getFileSystem() {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
 			var sdcard = fileSystem.root;
 			sdcard.getDirectory('dcim', {
 				create : false
-			}, function(dcim) {
-				listDir(dcim);
+			}, function(dirEntry) {
+				var directoryReader = dirEntry.createReader();
+        directoryReader.readEntries(function(entries) {
+            var i;
+            for (i=0; i<entries.length; i++) {
+                alert(entries[i].name);
+            }
+        }, function (error) {
+            alert(error.code);
+        });
 			}, function(error) {
 				alert(error.code);
 			})
