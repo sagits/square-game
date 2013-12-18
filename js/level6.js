@@ -21,21 +21,6 @@ var lastImage;
 var images = new Array();
 $(document).ready(function() {
 
-	function getFileSystem() {
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
-			var sdcard = fileSystem.root;
-			sdcard.getDirectory('dcim', {
-				create : false
-			}, function(dcim) {
-				listDir(dcim);
-			}, function(error) {
-				alert(error.code);
-			})
-		}, function(evt) {// error get file system
-			console.log(evt.target.error.code);
-		});
-	}
-
 	function listDir(directoryEntry) {
 		$.mobile.showPageLoadingMsg();
 		// show loading message
@@ -50,6 +35,21 @@ $(document).ready(function() {
 			// hide loading message
 		}, function(error) {// error get files and folders
 			alert(error.code);
+		});
+	}
+	
+	function getFileSystem() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
+			var sdcard = fileSystem.root;
+			sdcard.getDirectory('dcim', {
+				create : false
+			}, function(dcim) {
+				listDir(dcim);
+			}, function(error) {
+				alert(error.code);
+			})
+		}, function(evt) {// error get file system
+			console.log(evt.target.error.code);
 		});
 	}
 	
