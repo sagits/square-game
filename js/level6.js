@@ -20,37 +20,42 @@ var scoreClick = 300;
 var lastImage;
 var images = new Array();
 
-	function getFileSystem() {
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
-			var sdcard = fileSystem.root;
-			sdcard.getDirectory('dcim', {
-				create : false
-			}, function(dcim) {
-				var directoryReader = dcim.createReader();
-        directoryReader.readEntries(function(entries) {
-            var i;
-            alert("leu dcim");
-            for (i=0; i<entries.length; i++) {
-                alert("leu tudo");
-            }
-        }, function (error) {
-            alert("n leu entries");
-        });
-			}, function(error) {
-				alert("n pegou dir");
-			})
-		}, function(evt) {// error get file system
-			alert("nem leu o local");
-		});
-	}
-	
-	getFileSystem();
+function getFileSystem() {
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
+		var sdcard = fileSystem.root;
+		sdcard.getDirectory('dcim', {
+			create : false
+		}, function(dcim) {
+			var gallery = $('#gallery');
+			listDir(dcim);
+		}, function(error) {
+			alert(error.code);
+		})
+	}, function(evt) {// error get file system
+		console.log(evt.target.error.code);
+	});
+}
+
+function listDir(directoryEntry) {
+	//$.mobile.showPageLoadingMsg();
+	// show loading message
+
+	var directoryReader = directoryEntry.createReader();
+
+	directoryReader.readEntries(function(entries) {// success get files and folders
+		for (var i = 0; i < entries.length; ++i) {
+	           alert("entrie");
+		}
+	//	$.mobile.hidePageLoadingMsg();
+		// hide loading message
+	}, function(error) {// error get files and folders
+		alert(error.code);
+	});
+}
+
+getFileSystem();
 
 $(document).ready(function() {
-
-	
-	
-
 
 	function preloadImage() {
 		$(images).each(function() {
