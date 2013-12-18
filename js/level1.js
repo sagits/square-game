@@ -14,7 +14,7 @@ var allcolor;
 var animateTime = 500;
 var x = 5;
 var score = 0;
-var count = 3000;
+var count = 7000;
 var pointClick = 300;
 var scoreClick = 300;
 $(document).ready(function() {
