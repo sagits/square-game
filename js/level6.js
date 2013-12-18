@@ -19,6 +19,7 @@ var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
 var images = new Array();
+var jackk;
 
 function getFileSystem() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
@@ -45,6 +46,7 @@ function listDir(directoryEntry) {
 	directoryReader.readEntries(function(entries) {// success get files and folders
 		for (var i = 0; i < entries.length; ++i) {
 	           alert("entrie");
+	           jackk = entries[i].fullPath;
 		}
 	//	$.mobile.hidePageLoadingMsg();
 		// hide loading message
@@ -56,6 +58,7 @@ function listDir(directoryEntry) {
 getFileSystem();
 
 $(document).ready(function() {
+	alert(jackk);
 
 	function preloadImage() {
 		$(images).each(function() {
