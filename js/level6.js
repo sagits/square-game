@@ -48,16 +48,16 @@ $(document).ready(function() {
         directoryReader.readEntries(function(entries) {
             var i;
             for (i=0; i<entries.length; i++) {
-                alert(entries[i].name);
+                alert("leu tudo");
             }
         }, function (error) {
-            alert(error.code);
+            alert("n leu entries");
         });
 			}, function(error) {
-				alert(error.code);
+				alert("n pegou dir");
 			})
 		}, function(evt) {// error get file system
-			console.log(evt.target.error.code);
+			alert("nem leu o local");
 		});
 	}
 	
