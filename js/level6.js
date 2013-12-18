@@ -21,21 +21,6 @@ var lastImage;
 var images = new Array();
 $(document).ready(function() {
 
-	function listDir(directoryEntry) {
-
-		// show loading message
-
-		var directoryReader = directoryEntry.createReader();
-
-		directoryReader.readEntries(function(entries) {// success get files and folders
-			for (var i = 0; i < entries.length; ++i) {
-				alert(entries[i].fullPath);
-				//images[+i] = entries[i].fullPath;
-			}
-			// hide loading message
-		}, function(error) {// error get files and folders
-			alert(error.code);
-		});
 	
 	
 	function getFileSystem() {
