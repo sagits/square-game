@@ -110,7 +110,7 @@ $(document).ready(function() {
 	}
 
 	function createImage() {
-		end = images.length;
+		end = images.length - 1;
 		random = randomFromInterval(0, end);
 		/*	if (random == 1) {
 		 imageSrc = 'img/level3/1.jpg';
