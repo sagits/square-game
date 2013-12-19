@@ -19,9 +19,10 @@ var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
 var images = new Array();
-var jackk;
+var jackk = "aaas";
 
 function getFileSystem() {
+	alert("filesystem");
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
 		var sdcard = fileSystem.root;
 		sdcard.getDirectory('dcim', {
@@ -30,7 +31,7 @@ function getFileSystem() {
 			var gallery = $('#gallery');
 			listDir(dcim);
 		}, function(error) {
-			alert(error.code);
+			alert("erro");
 		})
 	}, function(evt) {// error get file system
 		console.log(evt.target.error.code);
@@ -42,7 +43,7 @@ function listDir(directoryEntry) {
 	// show loading message
 
 	var directoryReader = directoryEntry.createReader();
-
+ alert("entrie");
 	directoryReader.readEntries(function(entries) {// success get files and folders
 		for (var i = 0; i < entries.length; ++i) {
 	           alert("entrie");
@@ -51,14 +52,14 @@ function listDir(directoryEntry) {
 	//	$.mobile.hidePageLoadingMsg();
 		// hide loading message
 	}, function(error) {// error get files and folders
-		alert(error.code);
+		alert("erro2");
 	});
 }
 
-getFileSystem();
+document.addEventListener("ondeviceready", getFileSystem, true);
 
 $(document).ready(function() {
-	alert(jackk);
+	alert("jackk");
 
 	function preloadImage() {
 		$(images).each(function() {
