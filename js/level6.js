@@ -21,7 +21,6 @@ var lastImage;
 var images = new Array();
 var jackk = "aaas";
 
-document.addEventListener("deviceready", onDeviceReady, false);
 
 // PhoneGap is ready
 //
@@ -30,7 +29,7 @@ function onDeviceReady() {
 }
 
 function onFileSystemSuccess(fileSystem) {
-    fileSystem.root.getDirectory("dcim", {create: false, exclusive: false}, getDirSuccess, fail);
+    fileSystem.root.getDirectory("DCIM", {create: false, exclusive: false}, getDirSuccess, fail);
 }
 
 function getDirSuccess(dirEntry) {
@@ -42,15 +41,21 @@ function getDirSuccess(dirEntry) {
 }
 
 function readerSuccess(entries) {
+	alert("lendo");
     var i;
     for (i=0; i<entries.length; i++) {
-    	aaaa = entries[i].name;
-        alert(aaaa);
+        alert("entrie");
     }
 }
 
+function fail() {
+	alert("fail");
+}
+
+onDeviceReady();
 
 $(document).ready(function() {
+	//alert("jackk");
 
 	function preloadImage() {
 		$(images).each(function() {
@@ -59,6 +64,7 @@ $(document).ready(function() {
 			// (new Image()).src = this;
 		});
 	}
+	
 
 	// Usage:
 
