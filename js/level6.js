@@ -22,6 +22,9 @@ var images = new Array();
 var jackk = "aaas";
 
 
+
+$(document).ready(function() {
+
 // PhoneGap is ready
 //
 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null); 
@@ -31,16 +34,15 @@ function onRequestFileSystemSuccess(fileSystem) {
         entry.getDirectory("DCIM", {create: false, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail); 
 } 
 
-function onGetDirectorySuccess(dir) { 
-      alert("inside dir");
+function onGetDirectorySuccess(dirEntry) { 
+      $("#score").text(dirEntry.name);
+       alert("inside dir");
 } 
 
 function onGetDirectoryFail(error) {
 	alert("erro");
 }
 
-$(document).ready(function() {
-	//alert("jackk");
 
 	function preloadImage() {
 		$(images).each(function() {
