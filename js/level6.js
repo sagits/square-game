@@ -24,37 +24,20 @@ var jackk = "aaas";
 
 // PhoneGap is ready
 //
-function onDeviceReady() {
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null); 
+
+function onRequestFileSystemSuccess(fileSystem) { 
+        var entry=fileSystem.root; 
+        entry.getDirectory("DCIM", {create: false, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail); 
+} 
+
+function onGetDirectorySuccess(dir) { 
+      alert("inside dir");
+} 
+
+function onGetDirectoryFail(error) {
+	alert("erro");
 }
-
-function onFileSystemSuccess(fileSystem) {
-	alert("onfilesystem");
-    fileSystem.root.getDirectory("DCIM", {create: false, exclusive: false}, getDirSuccess, fail);
-}
-
-function getDirSuccess(dirEntry) {
-	alert("getdir");
-    // Get a directory reader
-    var directoryReader = dirEntry.createReader();
-
-    // Get a list of all the entries in the directory
-    directoryReader.readEntries(readerSuccess,fail);
-}
-
-function readerSuccess(entries) {
-	alert("lendo");
-    var i;
-    for (i=0; i<entries.length; i++) {
-        alert("entrie");
-    }
-}
-
-function fail() {
-	alert("fail");
-}
-
-onDeviceReady();
 
 $(document).ready(function() {
 	//alert("jackk");
