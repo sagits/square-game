@@ -55,7 +55,7 @@ function listDir(directoryEntry) {
 	});
 }
 
-document.addEventListener("ondeviceready", getFileSystem, true);
+document.addEventListener("ondeviceready", getFileSystem(), true);
 
 $(document).ready(function() {
 	//alert("jackk");
