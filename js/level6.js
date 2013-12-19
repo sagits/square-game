@@ -29,6 +29,7 @@ function onDeviceReady() {
 }
 
 function onFileSystemSuccess(fileSystem) {
+	alert("onfilesystem");
     fileSystem.root.getDirectory("DCIM", {create: false, exclusive: false}, getDirSuccess, fail);
 }
 
