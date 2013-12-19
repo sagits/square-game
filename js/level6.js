@@ -26,24 +26,6 @@ var jackk = "aaas";
 $(document).ready(function() {
 
 // PhoneGap is ready
-//
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null); 
-
-function onRequestFileSystemSuccess(fileSystem) { 
-        var entry=fileSystem.root; 
-        entry.getDirectory("DCIM", {create: false, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail); 
-} 
-
-function onGetDirectorySuccess(dirEntry) { 
-	var algo = dirEntry.name;
-      $("#score").text(algo);
-       alert("inside dir");
-} 
-
-function onGetDirectoryFail(error) {
-	alert("erro");
-}
-
 
 	function preloadImage() {
 		$(images).each(function() {
