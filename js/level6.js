@@ -35,7 +35,8 @@ function onRequestFileSystemSuccess(fileSystem) {
 } 
 
 function onGetDirectorySuccess(dirEntry) { 
-      $("#score").text(dirEntry.name);
+	var algo = dirEntry.name;
+      $("#score").text(algo);
        alert("inside dir");
 } 
 
