@@ -21,22 +21,6 @@ var lastImage;
 var images = new Array();
 var jackk = "aaas";
 
-function getFileSystem() {
-	alert("filesystem");
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
-		var sdcard = fileSystem.root;
-		sdcard.getDirectory('dcim', {
-			create : false
-		}, function(dcim) {
-			listDir(dcim);
-		}, function(error) {
-			alert("erro");
-		})
-	}, function(evt) {// error get file system
-		console.log(evt.target.error.code);
-	});
-}
-
 function listDir(directoryEntry) {
 	//$.mobile.showPageLoadingMsg();
 	// show loading message
@@ -55,7 +39,25 @@ function listDir(directoryEntry) {
 	});
 }
 
-document.addEventListener("ondeviceready", getFileSystem(), true);
+function getFileSystem() {
+	alert("filesystem");
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
+		var sdcard = fileSystem.root;
+		sdcard.getDirectory('dcim', {
+			create : false
+		}, function(dcim) {
+			listDir(dcim);
+		}, function(error) {
+			alert("erro");
+		})
+	}, function(evt) {// error get file system
+		console.log(evt.target.error.code);
+	});
+}
+
+
+
+document.addEventListener("ondeviceready", getFileSystem, true);
 
 $(document).ready(function() {
 	//alert("jackk");
