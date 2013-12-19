@@ -55,9 +55,8 @@ function getFileSystem() {
 	});
 }
 
+getFileSystem();
 
-
-document.addEventListener("ondeviceready", getFileSystem, true);
 
 $(document).ready(function() {
 	//alert("jackk");
