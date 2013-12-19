@@ -33,6 +33,7 @@ function onFileSystemSuccess(fileSystem) {
 }
 
 function getDirSuccess(dirEntry) {
+	alert("getdir");
     // Get a directory reader
     var directoryReader = dirEntry.createReader();
 
