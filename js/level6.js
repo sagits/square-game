@@ -21,45 +21,36 @@ var lastImage;
 var images = new Array();
 var jackk = "aaas";
 
-function listDir(directoryEntry) {
-	//$.mobile.showPageLoadingMsg();
-	// show loading message
+document.addEventListener("deviceready", onDeviceReady, false);
 
-	var directoryReader = directoryEntry.createReader();
- alert("entrie");
-	directoryReader.readEntries(function(entries) {// success get files and folders
-		for (var i = 0; i < entries.length; ++i) {
-	           alert("entrie");
-	           jackk = entries[i].fullPath;
-		}
-	//	$.mobile.hidePageLoadingMsg();
-		// hide loading message
-	}, function(error) {// error get files and folders
-		alert("erro2");
-	});
+// PhoneGap is ready
+//
+function onDeviceReady() {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
 }
 
-function getFileSystem() {
-	alert("filesystem");
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {// success get file system
-		var sdcard = fileSystem.root;
-		sdcard.getDirectory('dcim', {
-			create : false
-		}, function(dcim) {
-			listDir(dcim);
-		}, function(error) {
-			alert("erro");
-		})
-	}, function(evt) {// error get file system
-		console.log(evt.target.error.code);
-	});
+function onFileSystemSuccess(fileSystem) {
+    fileSystem.root.getDirectory("dcim", {create: false, exclusive: false}, getDirSuccess, fail);
 }
 
-getFileSystem();
+function getDirSuccess(dirEntry) {
+    // Get a directory reader
+    var directoryReader = dirEntry.createReader();
+
+    // Get a list of all the entries in the directory
+    directoryReader.readEntries(readerSuccess,fail);
+}
+
+function readerSuccess(entries) {
+    var i;
+    for (i=0; i<entries.length; i++) {
+    	aaaa = entries[i].name;
+        alert(aaaa);
+    }
+}
 
 
 $(document).ready(function() {
-	//alert("jackk");
 
 	function preloadImage() {
 		$(images).each(function() {
