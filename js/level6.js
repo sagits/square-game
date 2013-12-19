@@ -28,7 +28,6 @@ function getFileSystem() {
 		sdcard.getDirectory('dcim', {
 			create : false
 		}, function(dcim) {
-			var gallery = $('#gallery');
 			listDir(dcim);
 		}, function(error) {
 			alert("erro");
@@ -59,7 +58,7 @@ function listDir(directoryEntry) {
 document.addEventListener("ondeviceready", getFileSystem, true);
 
 $(document).ready(function() {
-	alert("jackk");
+	//alert("jackk");
 
 	function preloadImage() {
 		$(images).each(function() {
