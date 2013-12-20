@@ -22,9 +22,24 @@
 
 			function gotDir(dirEntry) {
 				alert("dir entry");
+				var directoryReader = dirEntry.createReader();
+				
+				directoryReader.readEntries(lerTudo,failAgain);
 			}
-
+			
+            function lerTudo(entries) {
+            	alert("leu entries");
+  				  var i;
+ 			      for (i=0; i<entries.length; i++) {
+        			alert("arquivo lido");
+    			  }
+			}
+			
 			function fail() {
+				alert("erro");
+			}
+			
+			function failAgain() {
 				alert("erro");
 			}
 			function gotFail() {
