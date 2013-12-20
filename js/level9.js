@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 	// Usage:
 
-	preloadImage();
+	//preloadImage();
 
 	var counter = setInterval(meutempo, 1);
 	//1000 will  run it every 1 second
@@ -73,7 +73,7 @@ $(document).ready(function() {
 		$("#timer").text("Time: " + count + "sec");
 	}
 
-	firstImage(randomFromInterval(0, 7));
+	//firstImage(randomFromInterval(0, 7));
 
 	function randomFromInterval(from, to) {
 		random = Math.floor(Math.random() * (to - from + 1) + from);
@@ -86,7 +86,6 @@ $(document).ready(function() {
 
 	function createImage() {
 		random = randomFromInterval(0, 1);
-		images = ["img/level4/1.jpg", "img/level4/2.jpg"]; 
 		/*	if (random == 1) {
 		 imageSrc = 'img/level3/1.jpg';
 		 } else if (random == 2) {
