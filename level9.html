@@ -6,6 +6,7 @@
 		<script src="phonegap.js"></script>
 		<link rel="stylesheet" href="css/jquery-ui.css" />
 		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 
 		<title>Square game</title>
@@ -248,6 +249,7 @@ var images = new Array();
 				}
 
 				function changeScoreTime() {
+					alert("changing score");
 					count += pointClick;
 					score += scoreClick;
 					$("#score").text("Score: " + score);
@@ -258,6 +260,7 @@ var images = new Array();
 					thisSrc = $(this).attr('src');
 
 					if (thisSrc == oneSrc) {
+						alert("the right square");
 						changeScoreTime();
 						changeImage();
 						animateTime = animateTime - 30;
