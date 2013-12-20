@@ -1,3 +1,39 @@
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			function onDeviceReady() {
+				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+			}
+
+			function gotFS(fileSystem) {
+				fileSystem.root.getDirectory("imagem", {create: true, exclusive: false}, gotDir, gotFail);
+			}
+
+			function gotDir(dirEntry) {
+				alert("dir entry");
+				var directoryReader = dirEntry.createReader();
+				
+				directoryReader.readEntries(lerTudo,failAgain);
+			}
+			
+            function lerTudo(entries) {
+            	alert("leu entries");
+  				  var i;
+ 			      for (i=0; i<entries.length; i++) {
+        			alert(entries[i].name);
+    			  }
+			}
+			
+			function fail() {
+				alert("erro");
+			}
+			
+			function failAgain() {
+				alert("erro");
+			}
+			function gotFail() {
+				alert("erro no dir");
+			}
+
 document.addEventListener("backbutton", function() {
 	navigator.notification.confirm('Do you want to quit', onConfirmQuit, 'Exit', 'Cancel');
 }, true);
