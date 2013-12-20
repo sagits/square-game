@@ -1,3 +1,5 @@
+var images = new Array();
+
 			document.addEventListener("deviceready", onDeviceReady, false);
 
 			function onDeviceReady() {
@@ -19,7 +21,8 @@
             	alert("leu entries");
   				  var i;
  			      for (i=0; i<entries.length; i++) {
-        			alert(entries[i].name);
+        			caminho = entries[i].fullPath;
+        			images[i] = caminho;
     			  }
 			}
 			
@@ -54,7 +57,6 @@ var count = 10000;
 var pointClick = 600;
 var scoreClick = 300;
 var lastImage;
-var images = new Array();
 var jackk = "aaas";
 
 
@@ -122,8 +124,7 @@ $(document).ready(function() {
 	}
 
 	function createImage() {
-		end = images.length - 1;
-		random = randomFromInterval(0, end);
+		random = randomFromInterval(0, 1);
 		/*	if (random == 1) {
 		 imageSrc = 'img/level3/1.jpg';
 		 } else if (random == 2) {
