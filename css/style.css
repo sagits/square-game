@@ -1,8 +1,8 @@
 #square_div {
 	position: absolute;
-	left: 25%;
+	left: 5%;
 	top: 12%;
-	width: 20%;
+	width: 90%;
 	height: 80%;
 	overflow: auto;
 	border: solid 1px #000;
@@ -45,9 +45,9 @@
 }
 #text {
 	position: relative;
-	left: 12%;
-	width: 98%;
-	top: 0.2%;
+	left: 5%;
+	width: 90%;
+	top: 3%;
 	overflow: auto;
 }
 #tip {
